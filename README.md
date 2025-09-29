@@ -1,70 +1,120 @@
-# Getting Started with Create React App
+# 🏥 AI-Based Health News Curator
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+An AI-powered web app that curates and simplifies health news articles
+with TL;DR summaries, key takeaways, and easy-to-read simplified
+content.
 
-## Available Scripts
+------------------------------------------------------------------------
 
-In the project directory, you can run:
+## 1. Project Setup & Demo
 
-### `npm start`
+### Web Setup
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+``` bash
+npm install
+npm start
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Runs the app locally on <http://localhost:3000>.
 
-### `npm test`
+### Demo
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<img width="1840" height="968" alt="Screenshot 2025-09-29 174439" src="https://github.com/user-attachments/assets/b25083b9-d0e5-4880-996c-2d1244070bf0" />
 
-### `npm run build`
+<img width="1840" height="952" alt="Screenshot 2025-09-29 174524" src="https://github.com/user-attachments/assets/73989295-7734-4e23-bc4e-5d157ead815b" />
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+------------------------------------------------------------------------
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 2. Problem Understanding
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+The problem is to build an **AI-based news curator** that:\
+- Fetches health-related articles.\
+- Summarizes them into **TL;DRs** and **Key Takeaways**.\
+- Provides a **simplified version** of each article for easy reading.
 
-### `npm run eject`
+### Assumptions Made:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+-   Mock data is used instead of a live API for demonstration.\
+-   AI calls are simulated with processing delays.\
+-   Pagination and refresh are included to mimic real-world usage.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+------------------------------------------------------------------------
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## 3. AI Prompts & Iterations
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+-   **Initial Prompt**: Build a news curator that summarizes health
+    articles.\
+-   **Issues Faced**: Summaries were too short or repetitive.\
+-   **Refined Prompting**: Added TL;DR + multiple key points +
+    simplified version for accessibility.\
+-   **Final Result**: Clear, concise summaries with optional deeper
+    reading.
 
-## Learn More
+------------------------------------------------------------------------
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 4. Architecture & Code Structure
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+    health-news-curator/
+    ├── public/
+    │   └── index.html
+    ├── src/
+    │   ├── components/        # UI Components (Header, ArticleCard, Pagination, etc.)
+    │   ├── context/           # ArticlesContext (state management)
+    │   ├── services/          # mockData + aiService (simulated AI)
+    │   ├── utils/             # Helpers (date formatting, constants)
+    │   ├── App.js             # Main App Component
+    │   ├── index.js           # Entry Point
+    │   └── App.css            # Styling
+    ├── package.json
+    └── README.md
 
-### Code Splitting
+### Key Files:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+-   `App.js`: Root component, wraps app with `ArticlesProvider`.\
+-   `ArticlesContext.js`: Handles article state, loading, pagination,
+    and simplification.\
+-   `aiService.js`: Simulates AI summarization & simplification.\
+-   `components/`: Modular UI (cards, headers, pagination, etc.).
 
-### Analyzing the Bundle Size
+### State Management:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+-   **React Context** (`ArticlesContext`) for global state.\
+-   Handles: articles, pagination, expanded article view, error/loading
+    states.
 
-### Making a Progressive Web App
+------------------------------------------------------------------------
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## 5. Screenshots / Screen Recording
 
-### Advanced Configuration
+-   Attach screenshots (web)\
+-   Attach screen recording (mobile)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+------------------------------------------------------------------------
 
-### Deployment
+## 6. Known Issues / Improvements
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### Known Issues:
 
-### `npm run build` fails to minify
+-   Uses mock data only (no real API).\
+-   Simplification is keyword-based, not true NLP.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Possible Improvements:
+
+-   Integrate with a real **news API**.\
+-   Use **OpenAI API** for better summarization & simplification.\
+-   Add **search and filtering** by topic/date.\
+-   Offline caching and bookmarking of articles.
+
+------------------------------------------------------------------------
+
+## 7. Bonus Work
+
+-   **Modern UI** with TailwindCSS.\
+-   **Dark Mode Ready** styling.\
+-   Smooth **loading states & animations**.\
+-   Responsive layout for desktop & mobile.
+
+------------------------------------------------------------------------
+
+🚀 Built with React, Context API, TailwindCSS, and simulated AI
+services.
